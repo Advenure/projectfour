@@ -14,14 +14,20 @@ type Idata = {
 };
 
 export default async function BlogSectiontwo() {
-  const apifatch: Idata[] = await client.fetch(
+  let apifatch: Idata[] = [];
+try {
+  apifatch = await client.fetch(
     `*[_type == "product"][35..55]{
-      image { asset { _ref } }, 
+      image { asset { _ref } },
       description,
       price,
       name,
       _id
     }`
+  );
+} catch (error) {
+  console.error("Error fetching data:", error);
+}
   );
 
   return (
