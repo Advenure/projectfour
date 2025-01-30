@@ -40,14 +40,16 @@ try {
           >
             <div className="relative w-full h-52">
               <Link href={`/product/${post._id}`}>
-                <Image
-                  src={urlFor(post.image).url()}
-                  alt={post.name || "Product Image"}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-t hover:scale-105 transition-transform duration-300"
-                />
-              </Link>
+              {post.image && (
+            <Image
+        src={urlFor(post.image).url()}
+        alt={post.name || "Product Image"}
+        layout="fill"
+        objectFit="cover"
+        className="rounded-t hover:scale-105 transition-transform duration-300"
+      />
+      )}
+
             </div>
             <div className="p-6 hover:bg-gray-100 transition-colors duration-300">
               <h3 className="text-sm font-bold text-gray-800 mb-3 hover:text-blue-600 transition-colors duration-300">
